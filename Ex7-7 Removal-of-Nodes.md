@@ -1,75 +1,52 @@
 # Ex7 Removal of Nodes with a Specific Value from a Linked List
-## DATE: 17-11-2025
+## DATE:17-11-2025
 ## AIM:
 To write a java  program that removes all nodes from a linked list whose value matches a given integer (val) and returns the new head of the modified linked list.
 
 ## Algorithm
-1. Create a singly linked list by inserting nodes containing integer values.
-2. Read the value val that needs to be removed from the list.
-3. Skip all matching nodes at the beginning and update the head to the first non-matching node.
-4. Traverse the list; whenever current.next.data == val, bypass that node by linking current.next = current.next.next.
-5. Return and display the updated head of the modified linked list.
+1. Start the program.  
+2. Define a `Node` class containing `data` and `next`.  
+3. Create a linked list by inserting elements.  
+4. Traverse the list and remove nodes whose data equals the specified value.  
+5. Adjust pointers to skip deleted nodes and maintain the linked list.  
+6. Display the modified linked list.  
+7. Stop the program.  
 
 ## Program:
 ```
 /*
 program that removes all nodes from a linked list whose value matches a given integer (val) and returns the new head of the modified linked list.
 Developed by: JANARTHANAN K
-RegisterNumber:  212223040072
+RegisterNumber: 212223040072
 */
+import java.util.Scanner;
 
-public class RemoveNodesFromList {
-
-    // Node class
-    static class Node {
-        int data;
-        Node next;
-
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
+class Node {
+    int data;
+    Node next;
+    Node(int data) {
+        this.data = data;
+        this.next = null;
     }
+}
 
-    Node head;
-
-    // Insert at end
-    public void insert(int data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            return;
-        }
-        Node temp = head;
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-        temp.next = newNode;
-    }
-
-    // Remove nodes equal to val
-    public void removeValue(int val) {
-        // Remove matching nodes at head
+public class RemoveValueLinkedList {
+    static Node removeElements(Node head, int val) {
         while (head != null && head.data == val) {
             head = head.next;
         }
-
-        Node temp = head;
-        // If list becomes empty after removals
-        if (temp == null) return;
-
-        // Remove matching nodes in remaining list
-        while (temp.next != null) {
-            if (temp.next.data == val) {
-                temp.next = temp.next.next;
+        Node current = head;
+        while (current != null && current.next != null) {
+            if (current.next.data == val) {
+                current.next = current.next.next;
             } else {
-                temp = temp.next;
+                current = current.next;
             }
         }
+        return head;
     }
 
-    // Display list
-    public void display() {
+    static void display(Node head) {
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + " ");
@@ -78,35 +55,35 @@ public class RemoveNodesFromList {
         System.out.println();
     }
 
-    // Main
     public static void main(String[] args) {
-        RemoveNodesFromList list = new RemoveNodesFromList();
-
-        list.insert(10);
-        list.insert(20);
-        list.insert(20);
-        list.insert(30);
-        list.insert(20);
-        list.insert(40);
-
-        int val = 20;
-
-        System.out.println("Original List:");
-        list.display();
-
-        list.removeValue(val);
-
-        System.out.println("List After Removing " + val + ":");
-        list.display();
+        Scanner sc = new Scanner(System.in);
+        Node head = null, tail = null;
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            int val = sc.nextInt();
+            Node newNode = new Node(val);
+            if (head == null) {
+                head = tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+        }
+        System.out.print("Enter value to remove: ");
+        int value = sc.nextInt();
+        head = removeElements(head, value);
+        System.out.println("Linked list after removal:");
+        display(head);
+        sc.close();
     }
 }
-
-
 ```
 
 ## Output:
 
-<img width="1919" height="622" alt="image" src="https://github.com/user-attachments/assets/750c4093-fdd2-431e-861b-c89df0f29a7f" />
+<img width="943" height="209" alt="image" src="https://github.com/user-attachments/assets/3fc71a0b-d3ff-4994-a571-e1b0c15e7bc3" />
 
 
 ## Result:
