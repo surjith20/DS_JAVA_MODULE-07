@@ -1,5 +1,4 @@
 # Flattening a Nested List Using an Iterator
-## DATE: 06-10-2025
 ## AIM:
 To design and implement a class NestedIterator that flattens a nested list of integers such that all integers can be accessed sequentially using an iterator interface (next() and hasNext()).
 ## Algorithm
@@ -15,8 +14,8 @@ To design and implement a class NestedIterator that flattens a nested list of in
 ```
 /*
 program that removes all nodes from a linked list whose value matches a given integer (val) and returns the new head of the modified linked list.
-Developed by: JANARTHANAN K
-RegisterNumber: 212223040072
+Developed by: SURJITH D
+RegisterNumber: 212223043006
 */
 import java.util.*;
 
