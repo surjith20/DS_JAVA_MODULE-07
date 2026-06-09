@@ -1,5 +1,4 @@
 # Ex8 Detection of Cycle and Finding the Starting Node in a Linked List
-## DATE: 06-10-2025
 ## AIM:
 To write a program that detects a cycle in a linked list and returns the node where the cycle begins.
 If there is no cycle, the program should return null without modifying the linked list.
@@ -18,8 +17,8 @@ If there is no cycle, the program should return null without modifying the linke
 ```
 /*
 program that removes all nodes from a linked list whose value matches a given integer (val) and returns the new head of the modified linked list.
-Developed by: JANARTHANAN K
-RegisterNumber: 212223040072
+Developed by: SURJITH D
+RegisterNumber: 212223043006
 */
 class Node {
     int data;
